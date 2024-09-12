@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Website</title>
+    <title>hallo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This is a simple website hosted on GitHub Pages.</p>
 
-    <button onclick="showMessage()">Click me</button>
-    <p id="message"></p>
+    <div class="container">
+        <h1 contenteditable="false">hello</h1>
+        <p contenteditable="false">.</p>
+
+        <!-- Buttons with toggle functionality -->
+        <div class="buttons">
+            <button id="button1" onclick="toggleButtonVisibility('button1')">nein</button>
+            <button id="button2" onclick="toggleButtonVisibility('button2')">Button 2</button>
+            <button id="button3" onclick="toggleButtonVisibility('button3')">Button 3</button>
+        </div>
+
+        <!-- Button toggles -->
+        <div class="toggle-buttons">
+            <label>
+                <input type="checkbox" onclick="toggleButtonVisibility('button1')"> Toggle Button 1
+            </label>
+            <label>
+                <input type="checkbox" onclick="toggleButtonVisibility('button2')"> Toggle Button 2
+            </label>
+            <label>
+                <input type="checkbox" onclick="toggleButtonVisibility('button3')"> Toggle Button 3
+            </label>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
