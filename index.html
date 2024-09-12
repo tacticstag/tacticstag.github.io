@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hallo</title>
+    <title>Button Toggle Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <div class="container">
-        <h1 contenteditable="false">hello</h1>
-        <p contenteditable="false">.</p>
+        <!-- Non-editable text -->
+        <h1>Hello</h1>
+        <p>This text is not editable from the website, only from the code.</p>
 
-        <!-- Buttons with toggle functionality -->
+        <!-- Buttons with links to different websites -->
         <div class="buttons">
-            <button id="button1" onclick="toggleButtonVisibility('button1')">nein</button>
-            <button id="button2" onclick="toggleButtonVisibility('button2')">Button 2</button>
-            <button id="button3" onclick="toggleButtonVisibility('button3')">Button 3</button>
+            <button id="button1" onclick="openWebsite('https://example1.com')">Go to Website 1</button>
+            <button id="button2" onclick="openWebsite('https://example2.com')">Go to Website 2</button>
+            <button id="button3" onclick="openWebsite('https://example3.com')">Go to Website 3</button>
         </div>
 
         <!-- Button toggles -->
