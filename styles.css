@@ -1,9 +1,10 @@
 /* Background image (replace URL with your image link) */
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('https://images.pexels.com/photos/2335126/pexels-photo-2335126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-image: url('https://w0.peakpx.com/wallpaper/832/896/HD-wallpaper-best-nature-nature.jpg'); /* Replace with your image */
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
     display: flex;
@@ -20,12 +21,14 @@ body {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s ease;
 }
 
 /* Text styling */
-h1, p {
+h1 {
     font-family: 'Poppins', sans-serif;
     margin-bottom: 20px;
+    animation: textGlow 2s ease infinite;
 }
 
 /* Button styling */
@@ -40,25 +43,41 @@ h1, p {
     color: #333;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 /* Button hover effect */
 .buttons button:hover {
     background: linear-gradient(145deg, #dcdcdc, #f1f1f1);
     box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+    transform: translateY(-3px);
+    animation: buttonHoverEffect 0.3s ease forwards;
 }
 
-/* Button toggle styling */
-.toggle-buttons label {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    margin: 10px;
-    display: block;
-    cursor: pointer;
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-/* Hidden buttons when toggled off */
-.hidden {
-    display: none;
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+    }
+    100% {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
+    }
+}
+
+@keyframes buttonHoverEffect {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
 }
