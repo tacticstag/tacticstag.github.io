@@ -1,13 +1,64 @@
+/* Background image (replace URL with your image link) */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 50px;
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://images.pexels.com/photos/2335126/pexels-photo-2335126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
 }
 
-button {
-    padding: 10px;
-    background-color: blue;
-    color: white;
+/* Container styling */
+.container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Text styling */
+h1, p {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+.buttons button {
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 30px;
+    margin: 10px;
     border: none;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #f1f1f1, #dcdcdc);
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    color: #333;
+    font-size: 16px;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Button hover effect */
+.buttons button:hover {
+    background: linear-gradient(145deg, #dcdcdc, #f1f1f1);
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+}
+
+/* Button toggle styling */
+.toggle-buttons label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    margin: 10px;
+    display: block;
+    cursor: pointer;
+}
+
+/* Hidden buttons when toggled off */
+.hidden {
+    display: none;
 }
