@@ -1,7 +1,6 @@
-/* Background image (replace URL with your image link) */
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('https://w0.peakpx.com/wallpaper/832/896/HD-wallpaper-best-nature-nature.jpg'); /* Replace with your image */
+    background-image: url('https://img.freepik.com/free-photo/morskie-oko-tatry_1204-510.jpg?t=st=1726120049~exp=1726123649~hmac=cc4a9931dbeef9a533687453082d9d67d500647440bea01a6bb1f9950ce0edb1&w=1800'); /* Replace with your image */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -14,7 +13,6 @@ body {
     color: #fff;
 }
 
-/* Container styling */
 .container {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7);
@@ -24,14 +22,12 @@ body {
     animation: fadeIn 2s ease;
 }
 
-/* Text styling */
 h1 {
     font-family: 'Poppins', sans-serif;
     margin-bottom: 20px;
     animation: textGlow 2s ease infinite;
 }
 
-/* Button styling */
 .buttons button {
     font-family: 'Poppins', sans-serif;
     padding: 15px 30px;
@@ -46,7 +42,6 @@ h1 {
     transition: all 0.4s ease;
 }
 
-/* Button hover effect */
 .buttons button:hover {
     background: linear-gradient(145deg, #dcdcdc, #f1f1f1);
     box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
@@ -54,7 +49,6 @@ h1 {
     animation: buttonHoverEffect 0.3s ease forwards;
 }
 
-/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
