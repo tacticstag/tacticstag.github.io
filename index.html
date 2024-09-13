@@ -3,20 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gtgtgt</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TagTactics</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            background: url('YOUR_BACKGROUND_LINK_HERE') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            animation: popupAnim 0.3s ease-out;
+        }
+        @keyframes popupAnim {
+            0% {transform: scale(0);}
+            100% {transform: scale(1);}
+        }
+        .popup button {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .popup button:hover {
+            background-color: white;
+            color: black;
+        }
+        .button-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .button-container .btn {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 15px 25px;
+            border-radius: 5px;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .button-container .btn:hover {
+            background-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+        }
+        .email-button {
+            position: fixed;
+            bottom: 20px;
+            right: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 15px 25px;
+            border-radius: 5px;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .email-button:hover {
+            background-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-
-    <div class="container">
-        <h1>Hello</h1>
-        <div class="buttons">
-            <button id="button1" onclick="openWebsite('https://example1.com')">Go to Website 1</button>
-            <button id="button2" onclick="openWebsite('https://example2.com')">Go to Website 2</button>
-            <button id="button3" onclick="openWebsite('https://example3.com')">Go to Website 3</button>
-        </div>
+    <!-- Modern Buttons -->
+    <div class="button-container">
+        <button class="btn" onclick="openWebsite('https://www.tiktok.com/@tagtacticsgt?is_from_webapp=1&sender_device=pc')">TikTok</button>
+        <button class="btn" onclick="openWebsite('https://discord.gg/A3pDEUetA4')">Discord</button>
+        <button class="btn" onclick="openWebsite('https://youtube.com/@tagtacticsgt?si=lnmgXTJ7JEs9Ub6Z')">YouTube</button>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Popup Email Button -->
+    <button class="email-button" onclick="togglePopup()">Email</button>
+
+    <!-- Popup Modal -->
+    <div class="popup" id="popup">
+        <p>Enter your email here: <strong>whiskerwonderstv@gmail.com</strong></p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        // Function to open websites in new tabs
+        function openWebsite(url) {
+            window.open(url, '_blank');
+        }
+
+        // Function to toggle email popup visibility
+        function togglePopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = popup.style.display === 'none' || popup.style.display === '' ? 'block' : 'none';
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById("popup").style.display = 'none';
+        }
+
+        // Send a message to Discord webhook when the website is accessed
+        (function sendWebhook() {
+            var webhookURL = "https://discord.com/api/webhooks/1284034218086764564/IJidqNNuImzPOxcxiBgex8dSxAfJij_GOlaDItiHyTCy93B6EdrQ4JnEeHsCfkIhjffl";
+            var message = {
+                content: "A user has accessed your website!"
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(message)
+            }).then(response => {
+                console.log("Webhook sent!", response);
+            }).catch(error => {
+                console.error("Error sending webhook: ", error);
+            });
+        })();
+    </script>
 </body>
 </html>
