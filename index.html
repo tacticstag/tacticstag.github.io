@@ -91,7 +91,7 @@
             position: fixed;
             bottom: 20px;
             left: 20px;
-            width: 100px; /* You can adjust the size */
+            width: 100px; /* Adjust the size */
             height: auto;
         }
     </style>
@@ -102,7 +102,7 @@
         <button class="btn" onclick="openWebsite('https://www.tiktok.com/@tagtacticsgt?is_from_webapp=1&sender_device=pc')">TikTok</button>
         <button class="btn" onclick="openWebsite('https://discord.gg/A3pDEUetA4')">Discord</button>
         <button class="btn" onclick="openWebsite('https://youtube.com/@tagtacticsgt?si=lnmgXTJ7JEs9Ub6Z')">YouTube</button>
-        <button class="btn" onclick="openWebsite('https://github.com/tacticstag/tacticstag.github.io/')">website source</button>
+        <button class="btn" onclick="openWebsite('https://github.com/tacticstag/tacticstag.github.io/')">Website Source</button>
     </div>
 
     <!-- Popup Email Button -->
@@ -114,8 +114,8 @@
         <button onclick="closePopup()">Close</button>
     </div>
 
-    <!-- Orange Cat GIF -->
-    <img src="https://raw.githubusercontent.com/tacticstag/tacticstag.github.io/main/IMG_4915.gif" alt="Orange Cat" class="cat-gif">
+    <!-- Orange Cat GIF that will change -->
+    <img src="https://raw.githubusercontent.com/tacticstag/tacticstag.github.io/main/IMG_4915.gif" alt="Orange Cat" class="cat-gif" id="catGif">
 
     <script>
         // Function to open websites in new tabs
@@ -134,10 +134,28 @@
             document.getElementById("popup").style.display = 'none';
         }
 
+        // Array of GIF URLs
+        const gifs = [
+            "https://raw.githubusercontent.com/tacticstag/tacticstag.github.io/main/IMG_4915.gif", // Old Cat GIF
+            "https://raw.githubusercontent.com/tacticstag/tacticstag.github.io/main/IMG_4918.gif", // Add your new GIF URL here
+            // You can add more URLs to the array
+        ];
+
+        let currentGif = 0;
+
+        // Function to change the GIF
+        function changeGif() {
+            currentGif = (currentGif + 1) % gifs.length; // Cycle through GIFs
+            document.getElementById("catGif").src = gifs[currentGif]; // Change the src attribute
+        }
+
+        // Set interval to change GIF every 5 seconds (5000 milliseconds)
+        setInterval(changeGif, 5000);
+
         // Send a message to Discord webhook when the website is accessed
         (function sendWebhook() {
-            var webhookURL = "https://discord.com/api/webhooks/1284034218086764564/IJidqNNuImzPOxcxiBgex8dSxAfJij_GOlaDItiHyTCy93B6EdrQ4JnEeHsCfkIhjffl";
-            var message = {
+            const webhookURL = "https://discord.com/api/webhooks/1284034218086764564/IJidqNNuImzPOxcxiBgex8dSxAfJij_GOlaDItiHyTCy93B6EdrQ4JnEeHsCfkIhjffl";
+            const message = {
                 content: "A user has accessed your website!"
             };
 
