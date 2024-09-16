@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>TagTactics</title>
-    <!-- Favicon -->
     <link rel="icon" href="/favicon.png" type="image/png">
     <style>
         body {
@@ -25,27 +24,30 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.9);
             color: white;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 10px;
             animation: popupAnim 0.3s ease-out;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
         @keyframes popupAnim {
             0% {transform: scale(0);}
             100% {transform: scale(1);}
         }
         .popup button {
-            background-color: transparent;
-            border: 2px solid white;
+            background: linear-gradient(90deg, #FF5F6D, #FFC371);
+            border: none;
             color: white;
-            padding: 5px;
+            padding: 8px 12px;
             cursor: pointer;
             border-radius: 4px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            margin-top: 10px;
         }
         .popup button:hover {
-            background-color: white;
-            color: black;
+            background: linear-gradient(90deg, #FFC371, #FF5F6D);
+            transform: scale(1.05);
         }
         .button-container {
             position: fixed;
@@ -56,35 +58,39 @@
             gap: 10px;
         }
         .button-container .btn {
-            background-color: rgba(255, 255, 255, 0.3);
+            background: linear-gradient(90deg, #FF5F6D, #FFC371);
+            color: white;
             padding: 15px 25px;
             border-radius: 5px;
-            color: white;
             border: none;
             font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 95, 109, 0.3);
         }
         .button-container .btn:hover {
-            background-color: rgba(255, 255, 255, 0.6);
+            background: linear-gradient(90deg, #FFC371, #FF5F6D);
             transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 95, 109, 0.5);
         }
         .email-button {
             position: fixed;
             bottom: 20px;
             right: 50%;
-            background-color: rgba(255, 255, 255, 0.3);
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
             padding: 15px 25px;
             border-radius: 5px;
-            color: white;
             border: none;
             font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
         }
         .email-button:hover {
-            background-color: rgba(255, 255, 255, 0.6);
+            background: linear-gradient(90deg, #2575fc, #6a11cb);
             transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.5);
         }
         /* Orange Cat GIF Style */
         .cat-gif {
@@ -115,7 +121,7 @@
         <button onclick="closePopup()">Close</button>
     </div>
 
-    <!-- Orange Cat GIF that will change -->
+    <!-- Orange Cat GIF -->
     <img src="https://raw.githubusercontent.com/tacticstag/tacticstag.github.io/main/IMG_4915.gif" alt="Orange Cat" class="cat-gif" id="catGif">
 
     <script>
@@ -137,11 +143,9 @@
 
         // Array of GIF URLs
         const gifs = [
-            "https://raw.githubusercontent.com/tacticstag/tacticstag.github.io/main/IMG_4915.gif", // Old Cat GIF
-            "https://raw.githubusercontent.com/tacticstag/tacticstag.github.io/main/IMG_4918.gif", // Add your new GIF URL here
-            // You can add more URLs to the array
+            "https://raw.githubusercontent.com/tacticstag/tacticstag.github.io/main/IMG_4915.gif", 
+            "https://raw.githubusercontent.com/tacticstag/tacticstag.github.io/main/IMG_4918.gif",
         ];
-
         let currentGif = 0;
 
         // Function to change the GIF
