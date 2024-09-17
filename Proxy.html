@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Proxy Page</title>
+    <title>Simple PHP Proxy</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <h1>Simple Proxy Page</h1>
+    <h1>Simple PHP Proxy</h1>
     <form id="urlForm">
         <label for="url">Enter URL to visit:</label><br>
         <input type="text" id="url" placeholder="https://example.com" required>
@@ -30,14 +30,14 @@
 
     <script>
         document.getElementById('urlForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting
+            event.preventDefault();
             const url = document.getElementById('url').value;
-            // Ensure that the user doesn't accidentally or intentionally submit a non-HTTP URL
+            // Ensure valid URL format
             if (!url.startsWith('http://') && !url.startsWith('https://')) {
                 alert('Please enter a valid URL starting with http:// or https://');
                 return;
             }
-            document.getElementById('resultFrame').src = url; // Load the URL in the iframe
+            document.getElementById('resultFrame').src = 'proxy.php?url=' + encodeURIComponent(url); // Load the URL in the iframe
         });
     </script>
 </body>
