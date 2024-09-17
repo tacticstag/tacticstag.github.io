@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Proxy</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        input, button { margin: 10px; }
+        iframe { width: 100%; height: 80vh; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+
+<h1>Simple Proxy</h1>
+<p>Enter URL to fetch:</p>
+<input type="text" id="url" placeholder="Enter a URL" />
+<button id="fetchBtn">Fetch</button>
+
+<iframe id="iframe" src=""></iframe>
+
+<script>
+    document.getElementById('fetchBtn').addEventListener('click', function() {
+        var url = document.getElementById('url').value;
+        var iframe = document.getElementById('iframe');
+
+        // Make sure to validate the URL
+        if (url) {
+            iframe.src = url;
+        } else {
+            alert("Please enter a valid URL.");
+        }
+    });
+</script>
+
+</body>
+</html>
