@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +20,11 @@
             background-size: cover;
             overflow: hidden;
         }
+
         .popup {
             display: none;
             position: fixed;
-            bottom: 20px;
+            bottom: 100px;
             right: 20px;
             background-color: rgba(0, 0, 0, 0.9);
             color: white;
@@ -30,11 +32,14 @@
             border-radius: 10px;
             animation: popupAnim 0.3s ease-out;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            z-index: 2;
         }
+
         @keyframes popupAnim {
             0% {transform: scale(0);}
             100% {transform: scale(1);}
         }
+
         .popup button {
             background: linear-gradient(90deg, #FF5F6D, #FFC371);
             border: none;
@@ -45,10 +50,12 @@
             transition: background 0.3s ease, transform 0.3s ease;
             margin-top: 10px;
         }
+
         .popup button:hover {
             background: linear-gradient(90deg, #FFC371, #FF5F6D);
             transform: scale(1.05);
         }
+
         .button-container {
             position: fixed;
             top: 20px;
@@ -56,9 +63,11 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            z-index: 1;
         }
+
         .button-container .btn {
-            background: linear-gradient(90deg, #FF5F6D, #FFC371);
+            background: linear-gradient(90deg, rgba(0, 100, 150, 0.7), rgba(0, 150, 200, 0.7));
             color: white;
             padding: 15px 25px;
             border-radius: 5px;
@@ -66,18 +75,20 @@
             font-size: 16px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 95, 109, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 100, 150, 0.3);
         }
+
         .button-container .btn:hover {
-            background: linear-gradient(90deg, #FFC371, #FF5F6D);
+            background: linear-gradient(90deg, rgba(0, 150, 200, 0.7), rgba(0, 100, 150, 0.7));
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 95, 109, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 150, 200, 0.5);
         }
+
         .email-button {
             position: fixed;
             bottom: 20px;
-            right: 50%;
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            right: 20px;
+            background: linear-gradient(90deg, rgba(50, 50, 150, 0.7), rgba(100, 100, 200, 0.7));
             color: white;
             padding: 15px 25px;
             border-radius: 5px;
@@ -85,84 +96,90 @@
             font-size: 16px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+            box-shadow: 0 4px 15px rgba(50, 50, 150, 0.3);
+            z-index: 1;
         }
+
         .email-button:hover {
-            background: linear-gradient(90deg, #2575fc, #6a11cb);
+            background: linear-gradient(90deg, rgba(100, 100, 200, 0.7), rgba(50, 50, 150, 0.7));
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.5);
+            box-shadow: 0 6px 20px rgba(50, 50, 150, 0.5);
         }
-        /* Orange Cat GIF Style */
+
         .cat-gif {
             position: fixed;
             bottom: 20px;
             left: 20px;
-            width: 100px; /* Adjust the size */
+            width: 80px;
             height: auto;
+            z-index: 0;
+        }
+
+        @media (max-width: 768px) {
+            .button-container {
+                top: 10px;
+                right: 10px;
+            }
+            .button-container .btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+            .email-button {
+                right: 10px;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Modern Buttons -->
     <div class="button-container">
         <button class="btn" onclick="openWebsite('https://www.tiktok.com/@tagtacticsgt?is_from_webapp=1&sender_device=pc')">TikTok</button>
         <button class="btn" onclick="openWebsite('https://discord.gg/A3pDEUetA4')">Discord</button>
         <button class="btn" onclick="openWebsite('https://youtube.com/@tagtacticsgt?si=lnmgXTJ7JEs9Ub6Z')">YouTube</button>
         <button class="btn" onclick="openWebsite('https://github.com/tacticstag/tacticstag.github.io/')">Website Source code</button>
-        <button class="btn" onclick="openWebsite('https://htmledit.squarefree.com/')">real time html editor (helped make this)</button>
+        <button class="btn" onclick="openWebsite('https://htmledit.squarefree.com/')">HTML Editor</button>
     </div>
 
-    <!-- Popup Email Button -->
     <button class="email-button" onclick="togglePopup()">Email</button>
 
-    <!-- Popup Modal -->
     <div class="popup" id="popup">
         <p>Email: <strong>whiskerwonderstv@gmail.com</strong></p>
         <button onclick="closePopup()">Close</button>
     </div>
 
-    <!-- Orange Cat GIF -->
     <img src="https://raw.githubusercontent.com/tacticstag/tacticstag.github.io/main/IMG_4915.gif" alt="Orange Cat" class="cat-gif" id="catGif">
 
     <script>
-        // Function to open websites in new tabs
         function openWebsite(url) {
             window.open(url, '_blank');
         }
 
-        // Function to toggle email popup visibility
         function togglePopup() {
             var popup = document.getElementById("popup");
             popup.style.display = popup.style.display === 'none' || popup.style.display === '' ? 'block' : 'none';
         }
 
-        // Function to close the popup
         function closePopup() {
             document.getElementById("popup").style.display = 'none';
         }
 
-        // Array of GIF URLs
         const gifs = [
             "https://raw.githubusercontent.com/tacticstag/tacticstag.github.io/main/IMG_4915.gif", 
             "https://raw.githubusercontent.com/tacticstag/tacticstag.github.io/main/IMG_4918.gif",
         ];
         let currentGif = 0;
 
-        // Function to change the GIF
         function changeGif() {
-            currentGif = (currentGif + 1) % gifs.length; // Cycle through GIFs
-            document.getElementById("catGif").src = gifs[currentGif]; // Change the src attribute
+            currentGif = (currentGif + 1) % gifs.length;
+            document.getElementById("catGif").src = gifs[currentGif];
         }
 
-        // Set interval to change GIF every 5 seconds (5000 milliseconds)
         setInterval(changeGif, 5000);
 
-        // Send a message to Discord webhook when the website is accessed
         (function sendWebhook() {
             const webhookURL = "https://discord.com/api/webhooks/1284034218086764564/IJidqNNuImzPOxcxiBgex8dSxAfJij_GOlaDItiHyTCy93B6EdrQ4JnEeHsCfkIhjffl";
-            const message = {
-                content: "A user has accessed your website!"
-            };
+            const message = { content: "A user has accessed your website!" };
 
             fetch(webhookURL, {
                 method: 'POST',
