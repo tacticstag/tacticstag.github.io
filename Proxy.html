@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple PHP Proxy</title>
+    <title>Proxy Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,7 +18,7 @@
     </style>
 </head>
 <body>
-    <h1>Simple PHP Proxy</h1>
+    <h1>Proxy Service</h1>
     <form id="urlForm">
         <label for="url">Enter URL to visit:</label><br>
         <input type="text" id="url" placeholder="https://example.com" required>
@@ -37,7 +36,9 @@
                 alert('Please enter a valid URL starting with http:// or https://');
                 return;
             }
-            document.getElementById('resultFrame').src = 'proxy.php?url=' + encodeURIComponent(url); // Load the URL in the iframe
+            // Use a third-party proxy service
+            const proxyUrl = 'https://api.allorigins.win/get?url=';
+            document.getElementById('resultFrame').src = proxyUrl + encodeURIComponent(url);
         });
     </script>
 </body>
